@@ -1,0 +1,5 @@
+.idea/
+logs/
+vendor/
+.phpunit.result.cache
+test.pdf

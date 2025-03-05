@@ -78,9 +78,17 @@ comandos principales:
   docker-compose build
   docker-compose up -d
   ```
+- Pruebas unitarias:
+  ```bash
+  docker exec -it php-app php vendor/bin/phpunit
+  ```
 - Crear el esquema de la base de datos:
   ```bash
   docker exec -it php-app php /var/www/doctrine.php orm:schema-tool:create
+  ```
+- Borrar el esquema de la base de datos:
+  ```bash
+  docker exec -it php-app php /var/www/doctrine.php orm:schema-tool:drop --force
   ```
 
 ## Ejemplos de uso con Curl
@@ -103,7 +111,7 @@ A continuación, se presentan ejemplos de cómo interactuar con la API utilizand
   ```bash
   curl -X GET "http://localhost:80/user?id=1" -H "Content-Type: application/json"
   ```
-    - Obtener un usuario por Email:
+- Obtener un usuario por Email:
   ```bash
   curl -X GET "http://localhost:80/user?email=johndoe@example.com" -H "Content-Type: application/json"
   ```

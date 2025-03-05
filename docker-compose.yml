@@ -9,11 +9,14 @@ services:
     command: >
       sh -c "composer install && apache2-foreground"
     volumes:
+      - ./logs:/var/www/logs
       - ./src:/var/www/src
       - ./public:/var/www/html
+      - ./bootstrap.php:/var/www/bootstrap.php
       - ./composer.json:/var/www/composer.json
       - ./composer.lock:/var/www/composer.lock
       - ./doctrine.php:/var/www/doctrine.php
+      - ./phpunit.xml:/var/www/phpunit.xml
     depends_on:
       - db
 
